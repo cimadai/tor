@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  tor:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - nginx
+  nginx:
+    image: nginx
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+
